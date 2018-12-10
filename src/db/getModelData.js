@@ -1,0 +1,1 @@
+export function getModelData({ instance }) {  return new Promise(resolve => {    const modelStore = instance.transaction('model').objectStore('model');    const requestRecords = modelStore.getAll();    requestRecords.onsuccess = () => {      return resolve(requestRecords.result);    };  });}

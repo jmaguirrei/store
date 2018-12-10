@@ -1,0 +1,1 @@
+export function addToQueue(Store) {  return ({ name, steps, onError }) => {    const _id = Date.now();    const objToQueue = {      _id,      name,      steps,      done: false,    };    if (onError) objToQueue.onError = onError;    Store.process.queue.splice(0, 0, objToQueue); // ads into the first element    Store.process.runTask({ _id });  };}

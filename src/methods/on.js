@@ -1,0 +1,1 @@
+export function on(Store) {  return (eventStr, callback) => {    Store.objects.reactions.push({ eventStr, callback, keepAlive: true });  };}

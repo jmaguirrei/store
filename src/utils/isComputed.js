@@ -1,0 +1,1 @@
+export function isComputed(Store, observable) {  return Object.keys(Store.objects.computed).includes(observable);}

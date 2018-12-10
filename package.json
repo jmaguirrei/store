@@ -1,0 +1,17 @@
+{
+  "name": "@jmaguirrei/store",
+  "version": "0.0.1",
+  "description": "Store object for state management and more",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmaguirrei/store.git"
+  },
+  "scripts": {
+    "build": "parcel build ./src/index.js",
+    "package": "npm version patch && npm run build && npm publish",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "José Manuel Aguirre",
+  "license": "MIT"
+}

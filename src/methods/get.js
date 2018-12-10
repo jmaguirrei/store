@@ -1,0 +1,1 @@
+export function get(Store) {  return registerNumber => field => {    Store.methods.subscribe(registerNumber, field);    return Store.objects.observables[field];  };}

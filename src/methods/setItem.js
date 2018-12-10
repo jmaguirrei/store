@@ -1,0 +1,1 @@
+export function setItem(Store) {  return (observable, item) => {    const findIndex = Store.objects.observables[observable].findIndex(x => x.id === item.id);    Store.objects.observables[observable][findIndex] = item;    Store.methods.notify(observable);  };}

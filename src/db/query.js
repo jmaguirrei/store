@@ -1,0 +1,1 @@
+export function query(Store) {  return domain => {    if (!Store.db.data) return [];    return Store.db.data[domain] || [];  };}

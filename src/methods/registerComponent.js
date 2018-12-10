@@ -1,0 +1,1 @@
+let currentRegisterNumber = 1000;export function registerComponent(Store) {  return componentDef => {    currentRegisterNumber++;    Store.objects.components[currentRegisterNumber] = {      definition: componentDef,      instances: {},    };    return currentRegisterNumber;  };}

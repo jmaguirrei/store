@@ -1,0 +1,1 @@
+export function compute(Store) {  return key => {    const { take, calc } = Store.objects.computed[key];    const values = take.map(field => Store.objects.observables[field]);    Store.objects.observables[key] = calc(...values);  };}

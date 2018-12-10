@@ -1,0 +1,1 @@
+export function once(Store) {  return (eventStr, callback) => {    Store.objects.reactions.push({ eventStr, callback, done: false });  };}

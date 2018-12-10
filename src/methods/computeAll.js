@@ -1,0 +1,1 @@
+export function computeAll(Store) {  return () => {    Object.keys(Store.objects.computed).forEach(key => {      Store.methods.compute(key);    });  };}
