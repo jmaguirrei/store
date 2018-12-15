@@ -28,7 +28,9 @@ export function processStep(Store, step, args) {
 
   // Store works like simple local State
   if (step.domain === '_Store_') {
-    return Store.methods[method](args);
+    Store.methods[method](args);
+    if (step.sideEffect) step.sideEffect();
+    return Promise.resolve();
   }
 
 }
