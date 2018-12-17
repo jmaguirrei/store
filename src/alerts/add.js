@@ -1,0 +1,1 @@
+export function add(Store) {  return ({ body, timeout }) => {    const rand1000 = Math.floor(1000 * Math.random());    const timestamp = Date.now();    const _id = `${timestamp}--${rand1000}`;    Store.alerts.items.push({      _id,      body,      timestamp,      isVisible: true,    });    setTimeout(() => Store.alerts.remove({ _id }), timeout);  };}
