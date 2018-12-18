@@ -1,6 +1,6 @@
 {
   "name": "@jmaguirrei/store",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "Store object for state management and more",
   "main": "dist/index.js",
   "repository": {
