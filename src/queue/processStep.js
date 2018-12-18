@@ -13,6 +13,7 @@ export function processStep(Store, step, args) {
     return new Promise((resolve, reject) => {
       return Store.utils.xhrRequest(method, args)
         .then(response => {
+          console.log("response", response);
           const error = response.error;
           const data = response.data;
           const returnObject = error ? { error } : { ...data };
