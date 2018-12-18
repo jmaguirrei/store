@@ -9,9 +9,9 @@ export const validations = {
 
     return {
       result: regex.test(str),
-      error: {
-        en: 'It doesn\'t look like and email yet',
-        es: 'No parece un email aún',
+      error: str.length === 0 ? null : {
+        en: 'Not an email yet',
+        es: 'Aún no parece un email',
       },
     };
 
@@ -37,7 +37,7 @@ export const validations = {
       return {
         result: false,
         error: {
-          en: 'Password can not contain white spaces',
+          en: 'Password can\'t contain white spaces',
           es: 'La contraseña no puede contener espacios',
         },
       };
