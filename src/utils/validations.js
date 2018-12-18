@@ -9,9 +9,9 @@ export const validations = {
 
     return {
       result: regex.test(str),
-      error: str.length === 0 ? null : {
-        en: 'Not an email yet',
-        es: 'Aún no parece un email',
+      error: str.indexOf('@') === 0 ? null : {
+        en: 'It almost looks like an email',
+        es: 'Ya casi parece un email',
       },
     };
 
@@ -20,11 +20,12 @@ export const validations = {
 /* --------------------------------------------------------------------------------------------- */
 
   name: str => {
+    const minLength = 5;
     return {
-      result: str.trim().length >= 2,
+      result: str.trim().length >= minLength,
       error: {
-        en: 'At least 2 characters',
-        es: 'Mínimo 2 caracteres',
+        en: `At least ${minLength} characters`,
+        es: `Mínimo ${minLength} caracteres`,
       },
     };
   },
@@ -33,7 +34,7 @@ export const validations = {
 
   password: str => {
     const noSpaces = /^\S+$/.test(str);
-    if (!noSpaces) {
+    if (!noSpaces && str.length > 0) {
       return {
         result: false,
         error: {
@@ -42,11 +43,12 @@ export const validations = {
         },
       };
     }
+    const minLength = 8;
     return {
-      result: str.length >= 8,
+      result: str.length >= minLength,
       error: {
-        en: 'At least 8 characters',
-        es: 'Mínimo 8 caracteres',
+        en: `At least ${minLength} characters`,
+        es: `Mínimo ${minLength} caracteres`,
       },
     };
 
