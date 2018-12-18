@@ -9,7 +9,7 @@ export const validations = {
 
     return {
       result: regex.test(str),
-      error: str.indexOf('@') === 0 ? null : {
+      error: str.indexOf('@') === -1 ? null : {
         en: 'It almost looks like an email',
         es: 'Ya casi parece un email',
       },
