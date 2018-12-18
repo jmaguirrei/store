@@ -11,6 +11,7 @@ export function processor(Store) {
 
       return prevArgs => {
         const args = resolveArgs(step.args, prevArgs);
+        console.log("args", args);
         processStep(Store, step, args);
       };
 
