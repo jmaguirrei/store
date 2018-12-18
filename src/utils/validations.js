@@ -10,8 +10,8 @@ export const validations = {
     return {
       result: regex.test(str),
       error: {
-        en: 'Invalid email format',
-        es: 'Formato de email no válido',
+        en: 'It doesn\'t look like and email yet',
+        es: 'No parece un email aún',
       },
     };
 
@@ -23,8 +23,8 @@ export const validations = {
     return {
       result: str.trim().length >= 2,
       error: {
-        en: 'Name should have at least 2 characters',
-        es: 'El nombre debe tener al menos 2 caracteres',
+        en: 'At least 2 characters',
+        es: 'Mínimo 2 caracteres',
       },
     };
   },
@@ -45,8 +45,8 @@ export const validations = {
     return {
       result: str.length >= 8,
       error: {
-        en: 'Password must have at least 8 characters',
-        es: 'La contraseña debe tener al menos 8 caracteres',
+        en: 'At least 8 characters',
+        es: 'Mínimo 8 caracteres',
       },
     };
 
