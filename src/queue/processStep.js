@@ -1,24 +1,36 @@
 
 import { processOptimistic } from './processOptimistic';
 
-export function processStep(Store, step, args) {
+export function processStep(Store, step, previousArgs = {}) {
 
-  const { method } = step;
+  const {
+    method,
+    domain,
+    args,
+    sideEffect,
+    optimistic = true,
+  } = step(previousArgs);
 
   // Backend may return something valuable for the next step
-  if (step.domain === '_Backend_') {
+  if (domain === '_Backend_') {
 
-    const resolveOptimistic = processOptimistic(Store, step.args);
+    const resolveOptimistic = optimistic
+      ? processOptimistic(Store, args)
+      : () => undefined;
 
     return new Promise((resolve, reject) => {
       return Store.utils.xhrRequest(method, args)
         .then(response => {
-          console.log("response", response);
           const error = response.error;
           const data = response.data;
-          const returnObject = error ? { error } : { ...data };
           resolveOptimistic(!error);
-          resolve(returnObject);
+          resolve({
+            error,
+            data: {
+              ...previousArgs.data,
+              ...data,
+            },
+          });
         })
         .catch(err => {
           resolveOptimistic(false);
@@ -28,10 +40,10 @@ export function processStep(Store, step, args) {
   }
 
   // Store works like simple local State
-  if (step.domain === '_Store_') {
+  if (domain === '_Store_') {
     Store.methods[method](args);
-    if (step.sideEffect) step.sideEffect();
-    return Promise.resolve();
+    if (sideEffect) sideEffect();
+    return Promise.resolve(previousArgs);
   }
 
 }

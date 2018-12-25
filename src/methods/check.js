@@ -1,1 +1,1 @@
-// import _ from '/framework/belt';export function check(Store) {  return (name, str, timeout) => {    const { result, error } = Store.utils.validations[name](str);    if (timeout) {      Store.alerts.add({        type: 'checks',        name,        text: error,      }, timeout);    }    return { result, error };  };}
+// import _ from '/framework/belt';export function check(Store) {  return (name, str) => {    const { result, message } = Store.config.checks[name](str);    return { result, message };  };}

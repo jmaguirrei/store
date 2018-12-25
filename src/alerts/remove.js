@@ -1,1 +1,0 @@
-export function remove(Store) {  return ({ _id }) => {    const findAlert = Store.alerts.items.find(item => item._id === _id);    if (findAlert) findAlert.isVisible = false;  };}

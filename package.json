@@ -15,5 +15,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "José Manuel Aguirre",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.3"
+  }
 }

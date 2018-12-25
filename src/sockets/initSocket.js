@@ -12,7 +12,7 @@ export function initSocket(url, { user_id, onMessage }) {
   ws.onopen = () => {
     console.log('WebSocket opened');
     // tell the server user_id is connected
-    sendJSON({ user_id, isInitial: true });
+    if (user_id) sendJSON({ user_id, isInitial: true });
   };
 
   ws.onclose = x => console.log('WebSocket closed', x);
