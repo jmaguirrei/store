@@ -1,11 +1,11 @@
 
 
-export function initSocket(url, { user_id, onMessage }) {
+export function initSocket({ socketUrl, user_id, onMessage }) {
 
   const wsSupport = 'WebSocket' in window;
   if (!wsSupport) return console.log('WebSocket not supported');
 
-  const ws = new window.WebSocket(url);
+  const ws = new window.WebSocket(socketUrl);
 
   const sendJSON = obj => ws.send(JSON.stringify(obj));
 
