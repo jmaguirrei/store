@@ -1,6 +1,6 @@
 {
   "name": "@jmaguirrei/store",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "description": "Store object for state management and more",
   "main": "dist/index.js",
   "author": "José Manuel Aguirre",
