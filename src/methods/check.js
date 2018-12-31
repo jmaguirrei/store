@@ -1,1 +1,1 @@
-// import _ from '/framework/belt';export function check(Store) {  return (name, str) => {    const { result, message } = Store.config.checks[name](str);    return { result, message };  };}
+// import _ from '/framework/belt';export function check(Store, checks) {  return (name, str) => {    const { result, message } = checks[name](str);    return { result, message };  };}

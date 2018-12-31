@@ -19,7 +19,7 @@ export function processStep(Store, step, previousArgs = {}) {
       : () => undefined;
 
     return new Promise((resolve, reject) => {
-      return Store.utils.xhrRequest(method, args)
+      return Store.methods.callServerMethod(method, args)
         .then(response => {
           const error = response.error;
           const data = response.data;
