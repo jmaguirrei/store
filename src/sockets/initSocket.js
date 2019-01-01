@@ -2,8 +2,16 @@
 
 export function initSocket({ socketUrl, user_id, onMessage }) {
 
+  if (!socketUrl) {
+    console.log('SocketUrl not defined');
+    return () => undefined;
+  }
+
   const wsSupport = 'WebSocket' in window;
-  if (!wsSupport) return console.log('WebSocket not supported');
+  if (!wsSupport) {
+    console.log('WebSocket not supported');
+    return () => undefined;
+  }
 
   const ws = new window.WebSocket(socketUrl);
 
@@ -21,9 +29,7 @@ export function initSocket({ socketUrl, user_id, onMessage }) {
   };
 
 
-  return {
-    sendJSON,
-  };
+  return sendJSON;
 
 }
 
