@@ -1,1 +1,1 @@
-export { createStore } from './lifecycle/createStore';export { connectStoreToServer } from './lifecycle/connectStoreToServer';
+import { createStore } from './lifecycle/createStore';export default createStore;
